@@ -1,5 +1,6 @@
 import os
 from fastapi import APIRouter, UploadFile, File, File, HTTPException
+from services.chunking import extract_text_from_pdf, split_into_chunks
 
 router = APIRouter()
 
@@ -20,4 +21,22 @@ async def upload_document(file: UploadFile = File()):
         "filename": file.filename,
         "message": "File uploaded successfully",
         "saved_path": file_path
+    }
+
+@router.get("/chunk/{filename}")
+def chunk_document(filename: str):
+
+    file_path = os.path.join(Upload_DIR, filename)
+
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="File not found. Upload it first!")
+
+    raw_text = extract_text_from_pdf(file_path)
+
+    chunks = split_into_chunks(raw_text)
+
+    return {
+        "filename": filename,
+        "total_chunks": len(chunks),
+        "chunks": chunks
     }
