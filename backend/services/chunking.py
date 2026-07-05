@@ -3,7 +3,7 @@ import tiktoken
 
 tokenizer = tiktoken.encoding_for_model("gpt-3.5-turbo")
 
-def extract_text_from_pdf(file_path: str) -> str:
+def extract_text_from_pdf(file_path: str) -> dict:
 
     full_text = ""
 
@@ -15,7 +15,10 @@ def extract_text_from_pdf(file_path: str) -> str:
             if text:
                 full_text += text + "\n"
 
-    return full_text
+    return {
+        "text": full_text,
+        "method": "pdfplumber"
+    }
 
 def split_into_chunks(text: str, chunk_size: int = 500, overlap: int = 50) -> list[dict]:
 

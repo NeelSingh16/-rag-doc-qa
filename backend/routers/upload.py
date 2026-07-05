@@ -1,6 +1,8 @@
 import os
 from fastapi import APIRouter, UploadFile, File, File, HTTPException
 from services.chunking import extract_text_from_pdf, split_into_chunks
+from services.vector_store import store_chunks
+from services.embedding import get_embeddings_batch
 
 router = APIRouter()
 
@@ -31,12 +33,22 @@ def chunk_document(filename: str):
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="File not found. Upload it first!")
 
-    raw_text = extract_text_from_pdf(file_path)
+    extraction_result = extract_text_from_pdf(file_path)
 
-    chunks = split_into_chunks(raw_text)
+    if not extraction_result["text"].strip():
+        raise HTTPException(status_code=422, detail="Could not extract text from this")
+
+    chunks = split_into_chunks(extraction_result["text"])
+
+
+    chunk_texts = [chunk["text"] for chunk in chunks]
+    embeddings = get_embeddings_batch(chunk_texts)
+
+    stored_count = store_chunks(filename, chunks, embeddings)
 
     return {
         "filename": filename,
-        "total_chunks": len(chunks),
-        "chunks": chunks
+        "extraction_method": extraction_result["method"],
+        "chunks_stored": stored_count,
+        "message": f"Document processed and ready to query"
     }
