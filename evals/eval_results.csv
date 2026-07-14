@@ -1,0 +1,19 @@
+question,expected_answer,generated_answer,score,reason,filename
+What is the name of the student who submitted this document?,Neel Singh,The name of the student who submitted this document is Neel Singh. (Chunk 2),5,Generated answer is a more detailed and accurate description of the expected answer.,Neel BI.pdf
+What is the name of the course completed?,Business Intelligence using Excel Basics Tutorial,"The name of the course completed is ""Business Intelligence using Excel Basics Tutorial"" (Chunk 2).",5,The generated answer accurately matches the expected answer in terms of content and detail.,Neel BI.pdf
+What is the certificate code mentioned in the document?,10136766,The certificate code is 10136766. (Chunk 1 and Chunk 3),5,Exact match between expected and generated answers.,Neel BI.pdf
+What Excel functions were learned in the course?,"SUM, AVERAGE, COUNT, IF, and VLOOKUP","The Excel functions learned in the course were:
+
+- SUM
+- AVERAGE
+- COUNT
+- IF
+- VLOOKUP
+
+(From Chunk 1: ""Basic Excel Functions and Formulas"" and Chunk 2: ""Basic Excel Functions and Formulas"")",5,"Generated answer is identical to the expected answer, including formatting and details.",Neel BI.pdf
+What is the roll number of the student?,BE C-46,The roll number of the student is BE C-46. (Chunk 1),5,Exact match with the expected answer.,Neel BI.pdf
+What key concepts did the course cover?,"Data organization, cleaning, visualization, and reporting","The course covered key concepts such as data organization, cleaning, visualization, and reporting. It also introduced essential Excel features like pivot tables, charts, formulas, and dashboards. (From Chunk 1: Course Summary)",4,Generated answer includes all expected concepts and adds additional relevant information.,Neel BI.pdf
+What types of charts were studied in the course?,"Bar charts, line graphs, and pie charts","According to [Chunk 1]: Data Visualization Techniques, the course studied different types of charts such as bar charts, line graphs, and pie charts.",5,The generated answer provides a more detailed and contextual explanation of the expected answer.,Neel BI.pdf
+What does the course say about pivot tables?,Pivot tables are used to summarize large datasets and extract meaningful insights,"According to [Chunk 1], the course learned how to create and use pivot tables to summarize large datasets. It also gained skills in grouping data, applying filters, and extracting meaningful insights efficiently. Additionally, in [Chunk 2], it is mentioned that the course introduced essential Excel features like pivot tables, which are widely used in industry for analyzing large datasets.",5,"The generated answer provides a more detailed explanation and additional information about pivot tables, while still conveying the main idea of summarizing large datasets and extracting insights.",Neel BI.pdf
+What institution issued this document?,Ajeenkya DY Patil School of Engineering,AJEENKYA DY PATIL SCHOOL OF ENGINEERING (from Chunk 2),5,Exact match with correct capitalization and formatting.,Neel BI.pdf
+What platform was the course taken on?,Simplilearn,"The course was taken on the Simplilearn platform, as mentioned in the Course URL: https://www.simplilearn.com/free-business-intelligence-excel-course-skillup. (Chunk 1)",5,Exact match of the expected answer.,Neel BI.pdf
